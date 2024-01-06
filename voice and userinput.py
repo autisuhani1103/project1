@@ -57,7 +57,7 @@ engine = pyttsx3.init('sapi5')
 rate = engine.getProperty('rate')
 voices = engine.getProperty('voices')
 print(voices[0].id)
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 engine.setProperty("rate", 160)
 
 
@@ -232,15 +232,15 @@ def execute_command(command):
 
     elif 'restart system' in command:
         speak("Restarting")
-        subprocess.call(["restart", "/r"])
+        subprocess.call(["shutdown", "/r"])
 
     elif 'hibernate' in command:
         speak("Hibernating")
-        subprocess.call(["hibernate", "/h"])
-
+        subprocess.call(["shutdown", "/h"])
+    
     elif 'sleep' in command:
         speak("Sleeping")
-        subprocess.call(["sleep", "/s"])
+        subprocess.call(["shutdown", "/s"])
 
     elif 'log off' in command:
         speak("Make sure all the applications are closed before logoff")
@@ -250,7 +250,7 @@ def execute_command(command):
     elif 'signout' in command:
         speak("Make sure all the applications are closed before signing off")
         time.sleep(5)
-        subprocess.call(["signoff", "/S"])
+        subprocess.call(["shutdown", "/l"])
 
     elif 'google search' in command:
         import wikipedia as googleScrap
