@@ -1,10 +1,8 @@
 import pyttsx3
 import datetime
 import speech_recognition as sr
-import wikipedia
 import webbrowser as wb
 import os
-import smtplib
 import pyjokes
 import subprocess
 import ctypes
@@ -101,12 +99,9 @@ def takeCommand():
 
 def execute_command(command):
     if 'wikipedia' in command:
-        speak('Searching Wikipedia...')
-        data = command.replace("wikipedia", "")
-        results = wikipedia.summary(data, sentences=2)
-        speak("According to Wikipedia")
-        print(results)
-        speak(results)
+        speak('opening Wikipedia...')
+        codePath = ("https://www.wikipedia.org//")
+        os.startfile(codePath)
 
     elif 'open chrome' in command:
         speak("opening chrome")
@@ -123,7 +118,8 @@ def execute_command(command):
 
     elif 'open stackoverflow' in command:
         speak("opening stackoverflow")
-        wb.open("https://stackoverflow.com")
+        codePath = ("https://stackoverflow.com")
+        os.startfile(codePath)
 
     elif 'open gmail' in command:
         speak("opening gmail")
@@ -269,7 +265,7 @@ def execute_command(command):
 
     elif 'play' in command:
         b = "playing youtube songs"
-        wb.open("https://www.youtube.com//watch?v=AK6RGnaiM00")
+        wb.open("https://www.youtube.com//watch?v=4B8l493RrFQ")
 
     elif 'empty recycle bin' in command:
         winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=True)
